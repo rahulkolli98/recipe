@@ -41,7 +41,8 @@ const recipeData = {
         "Greek yogurt (1 tbsp)",
         "Organic seasoning (from Costco)",
         "Ground black pepper (to taste)",
-        "Chili flakes (1 tsp)"
+        "Chili flakes (1 tsp)",
+        "Mayo (1 spoon, optional)"
       ]
     }
   ],
@@ -629,6 +630,43 @@ export default function Home() {
                 </div>
               </motion.div>
             </motion.div>
+
+            {/* Serving Suggestion */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="mt-12 sm:mt-16"
+            >
+              <motion.div
+                className="bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border-2 border-amber-300 shadow-lg relative overflow-hidden"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 to-amber-100/50 opacity-50" />
+                <div className="relative z-10 flex items-start gap-4">
+                  <motion.span
+                    className="text-4xl sm:text-5xl flex-shrink-0"
+                    animate={{ 
+                      rotate: [0, 10, -10, 0],
+                      scale: [1, 1.1, 1]
+                    }}
+                    transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
+                  >
+                    🍚
+                  </motion.span>
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-bold text-amber-900 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
+                      Perfect Pairing
+                    </h3>
+                    <p className="text-gray-700 text-sm sm:text-base lg:text-lg leading-relaxed">
+                      P.S. This goes perfectly with veggies and rice, served with yogurt mixed with sriracha!
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
           </div>
 
         {/* Tips Section */}
@@ -676,6 +714,7 @@ export default function Home() {
                 { emoji: "⏱️", text: "Don't skip the marination - those 10 minutes make a big difference!", delay: 0.4 },
                 { emoji: "💻", text: "Unlike debugging code, you can actually taste-test this recipe as you go!", delay: 0.6 },
                 { emoji: "🌅", text: "Aim for that perfect golden-brown color - like catching the last rays of a sunset", delay: 0.8 },
+                { emoji: "✨", text: "Feeling extra good? Add 1 spoon of mayo to the marination for extra creaminess!", delay: 1.0 },
               ].map((tip, idx) => (
                 <motion.li 
                   key={idx}
